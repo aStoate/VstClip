@@ -1,0 +1,22 @@
+<h1> Title: <%= @clip.title %> </h1>
+<p> made by: <%= @clip.user_id %> </p>
+<p> like count: <%= @clip.like_count %> </p>
+<h1> <%= @clip.description %> </h1>
+<h1> URL: <%= @clip.url %> </h1>
+
+<br><br>
+<% if user_signed_in? %>
+	<% if current_user.likes?(@clip) %>
+		<%= link_to "Unlike", unlike_clip_path(@clip), method: :put %>
+	<% else %>
+		<%= link_to "Like", like_clip_path(@clip), method: :put %>
+	<% end %>
+<% end %>
+<%= render @clip.comments %>
+<br><br><br>
+
+<% if user_signed_in? %>
+	<%= link_to "add comment", new_clip_comment_path(@clip) %>
+<% end %>
+<p> <%= link_to "delete", clip_path(@clip), method: :delete, data: { confirm: "sure?"} %> </p>
+<p> <%= link_to "back", root_path %> </p>

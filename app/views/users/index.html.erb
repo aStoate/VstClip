@@ -1,0 +1,9 @@
+
+<h1> Users: </h1>
+<% @users.each do |user| %>
+	<h1> <%= link_to user.email, user_path(user.id) %> </h1>
+<% end %>
+
+
+
+<%= link_to "Clips", root_path %>

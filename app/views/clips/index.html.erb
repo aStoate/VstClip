@@ -1,0 +1,6 @@
+
+<h1> Clips: </h1>
+<% @clips.each do |clip| %>
+	<h1> <%= link_to clip.title, clip_path(clip.id) %> </h1>
+<% end %>
+

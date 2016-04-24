@@ -1,0 +1,11 @@
+<h1> Post Review </h1>
+<%= simple_form_for([@clip, @clip.comments.build]) do |f|  %>
+
+	<div id="rating-form">
+		<%= f.input :title %>
+	</div>
+	
+	<%= f.input :body %>
+	<%= f.button :submit, :class => "btn-custom2" %>
+
+<% end %>

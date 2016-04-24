@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clipping</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if user_signed_in? %>
+	<p> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></p>
+	<p> User: <%= current_user.email %> </p>
+<% else %>
+	<p> <%= link_to "Sign In", new_user_session_path %></p>
+	<p> <%= link_to "Sign up", new_user_registration_path %></p>
+<% end %>
+ <br><br>
+ <h3> <%= link_to "New Clip", new_clip_path %> </h3>
+ <br>
+ <br>
+<%= link_to "users", users_path %>
+<%= yield %>
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+</body>
+</html>
